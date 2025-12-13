@@ -1,0 +1,63 @@
+{
+  "author": "Roberto Pintos López",
+  "bugs": {
+    "url": "https://github.com/inversify/monorepo/issues"
+  },
+  "description": "InversifyJS validation docs code examples package",
+  "devDependencies": {
+    "@inversifyjs/ajv-validation": "workspace:*",
+    "@inversifyjs/class-validation": "workspace:*",
+    "@inversifyjs/code-examples-devkit": "workspace:*",
+    "@inversifyjs/http-core": "workspace:*",
+    "@inversifyjs/http-express": "workspace:*",
+    "@inversifyjs/http-validation": "workspace:*",
+    "@inversifyjs/standard-schema-validation": "workspace:*",
+    "@inversifyjs/validation-common": "workspace:*",
+    "@types/express": "5.0.6",
+    "@types/node": "24.10.3",
+    "@vitest/coverage-v8": "4.0.10",
+    "ajv": "8.17.1",
+    "ajv-formats": "3.0.1",
+    "class-transformer": "~0.5.1",
+    "class-validator": "~0.14.3",
+    "eslint": "9.39.2",
+    "express": "5.2.1",
+    "glob": "13.0.0",
+    "inversify": "7.10.6",
+    "prettier": "3.7.4",
+    "rimraf": "6.1.2",
+    "tslib": "2.8.1",
+    "typescript": "5.9.3",
+    "vitest": "4.0.10",
+    "zod": "4.1.13"
+  },
+  "homepage": "https://inversify.io",
+  "devEngines": {
+    "node": "^24.10.0",
+    "pnpm": "^10.13.1"
+  },
+  "license": "MIT",
+  "name": "@inversifyjs/validation-code-examples",
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inversify/monorepo.git"
+  },
+  "scripts": {
+    "build": "pnpm run build:cjs && pnpm run generate:examples",
+    "build:cjs": "tsc --build tsconfig.cjs.json && pnpm exec foundation-ts-package-cjs ./lib/cjs",
+    "build:clean": "rimraf generated lib",
+    "format": "prettier --write ./src",
+    "generate:examples": "node ./lib/cjs/scripts/generateExamples/index.mjs",
+    "lint": "eslint ./src",
+    "prebuild": "pnpm run build:clean",
+    "test": "vitest run",
+    "test:integration": "pnpm run test --project Integration",
+    "test:coverage": "pnpm run test:unit --coverage",
+    "test:uncommitted": "pnpm run test --changed=HEAD",
+    "test:unit": "pnpm run test --project Unit"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.1.1/schema.json",
+  "access": "restricted",
+  "baseBranch": "main",
+  "bumpVersionsWithWorkspaceProtocolOnly": true,
+  "changelog": "@inversifyjs/foundation-changelog-generator",
+  "commit": false,
+  "fixed": [
+    [
+      "@inversifyjs/ajv-validation",
+      "@inversifyjs/class-validation",
+      "@inversifyjs/standard-schema-validation",
+      "@inversifyjs/validation-common"
+    ],
+    [
+      "@inversifyjs/http-better-auth",
+      "@inversifyjs/http-core",
+      "@inversifyjs/http-express",
+      "@inversifyjs/http-express-v4",
+      "@inversifyjs/http-fastify",
+      "@inversifyjs/http-hono",
+      "@inversifyjs/http-open-api",
+      "@inversifyjs/http-uwebsockets",
+      "@inversifyjs/http-validation"
+    ]
+  ],
+  "ignore": [
+    "@inversifyjs/http-benchmarks",
+    "@inversifyjs/http-code-examples",
+    "@inversifyjs/http-open-api-code-examples",
+    "@inversifyjs/http-e2e-tests",
+    "@inversifyjs/http-openapi-example",
+    "@inversifyjs/framework-docs-site",
+    "@inversifyjs/logger-code-examples",
+    "@inversifyjs/react-code-runner",
+    "@inversifyjs/validation-code-examples"
+  ],
+  "updateInternalDependencies": "patch"
+}

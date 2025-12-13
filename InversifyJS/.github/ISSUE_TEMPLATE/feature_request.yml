@@ -1,0 +1,27 @@
+name: "\U0001F680 Community Ideas"
+description: "I have an idea or proposal \U0001F4A1!"
+labels: ["needs triage"]
+assignees:
+  - "notaphplover"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## :heart: We would love to hear your ideas and proposals
+
+        Please, submit your idea or proposal in the [monorepo](https://github.com/inversify/monorepo/issues/new?template=feature.yml)
+
+        Please do not create the issue here, it will be closed.
+
+        ---
+
+  - type: checkboxes
+    id: no-post
+    attributes:
+      label: |
+        Please do not submit this issue.
+      description: |
+        :bangbang: &nbsp; This issue will be closed. :bangbang:
+      options:
+        - label: I understand
+          required: true

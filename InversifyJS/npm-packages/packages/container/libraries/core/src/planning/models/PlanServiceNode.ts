@@ -1,0 +1,9 @@
+import { ServiceIdentifier } from '@inversifyjs/common';
+
+import { PlanBindingNode } from './PlanBindingNode';
+
+export interface PlanServiceNode {
+  bindings: PlanBindingNode | PlanBindingNode[] | undefined;
+  isContextFree: boolean;
+  readonly serviceIdentifier: ServiceIdentifier;
+}

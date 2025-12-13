@@ -1,0 +1,149 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{cts,mts,ts,tsx}"],
+      "outputs": ["dist/**", "lib/**"]
+    },
+    "@inversifyjs/binding-decorators-code-examples#build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{cts,mts,ts}"],
+      "outputs": ["generated/**", "lib/**"]
+    },
+    "@inversifyjs/react-code-runner#build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{css,cts,mts,ts,tsx}"],
+      "outputs": ["generated/**", "lib/**"]
+    },
+    "@inversifyjs/code-examples#build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{cts,mts,ts}"],
+      "outputs": ["generated/**", "lib/**"]
+    },
+    "@inversifyjs/http-code-examples#build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{cts,mts,ts}"],
+      "outputs": ["generated/**", "lib/**"]
+    },
+    "@inversifyjs/http-open-api-code-examples#build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{cts,mts,ts}"],
+      "outputs": ["generated/**", "lib/**"]
+    },
+    "@inversifyjs/logger-code-examples#build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{cts,mts,ts}"],
+      "outputs": ["generated/**", "lib/**"]
+    },
+    "@inversifyjs/validation-code-examples#build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{cts,mts,ts}"],
+      "outputs": ["generated/**", "lib/**"]
+    },
+    "@inversifyjs/framework-docs-site#build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "blog/**",
+        "docs/**",
+        "logger-docs/**",
+        "openapi-docs/**",
+        "src/**/*.{css,cts,mts,ts,tsx}",
+        "static/**",
+        "docusaurus.config.ts",
+        "sidebars.ts",
+        "validation-docs/**",
+        "versioned_docs/**",
+        "versioned_sidebars/**"
+      ],
+      "outputs": ["build/**"]
+    },
+    "@inversifyjs/inversify-binding-decorators-docs-site#build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "blog/**",
+        "docs/**",
+        "src/**/*.{css,cts,mts,ts,tsx}",
+        "static/**",
+        "docusaurus.config.ts",
+        "sidebars.ts",
+        "versioned_docs/**",
+        "versioned_sidebars/**"
+      ],
+      "outputs": ["build/**"]
+    },
+    "@inversifyjs/inversify-docs-site#build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "blog/**",
+        "docs/**",
+        "src/**/*.{css,cts,mts,ts,tsx}",
+        "static/**",
+        "docusaurus.config.ts",
+        "sidebars.ts",
+        "versioned_docs/**",
+        "versioned_sidebars/**"
+      ],
+      "outputs": ["build/**"]
+    },
+    "format": {
+      "inputs": ["src/**/*.{cts,mts,ts}"],
+      "outputs": ["src/**/*.{cts,mts,ts}"]
+    },
+    "@inversifyjs/foundation-vitest-config#format": {
+      "inputs": ["lib/**/*.{cjs,mjs,js}"],
+      "outputs": ["lib/**/*.{cjs,mjs,js}"]
+    },
+    "@inversifyjs/foundation-rollup-config#format": {
+      "inputs": ["lib/**/*.{cjs,mjs,js}"],
+      "outputs": ["lib/**/*.{cjs,mjs,js}"]
+    },
+    "lint": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{cts,mts,ts}"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{cts,mts,ts}"],
+      "outputs": []
+    },
+    "test:e2e": {
+      "cache": false,
+      "dependsOn": ["^build"]
+    },
+    "test:e2e:cjs": {
+      "cache": false,
+      "dependsOn": ["build"]
+    },
+    "test:e2e:esm": {
+      "cache": false,
+      "dependsOn": ["build"]
+    },
+    "test:integration": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{cts,mts,ts}"],
+      "outputs": []
+    },
+    "test:coverage": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{cts,mts,ts}"],
+      "outputs": ["coverage/**"]
+    },
+    "test:mutation": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{cts,mts,ts}"],
+      "outputs": ["reports/**"]
+    },
+    "test:uncommitted": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{cts,mts,ts}"],
+      "outputs": []
+    },
+    "test:unit": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{cts,mts,ts}"],
+      "outputs": []
+    }
+  },
+  "ui": "tui"
+}

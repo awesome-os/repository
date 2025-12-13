@@ -1,0 +1,74 @@
+{
+  "author": "Adrián Martínez Jiménez",
+  "bugs": {
+    "url": "https://github.com/inversify/monorepo/issues"
+  },
+  "description": "InversifyJs benchmarks package",
+  "dependencies": {
+    "@hono/node-server": "1.19.7",
+    "@inversifyjs/benchmark-utils": "workspace:*",
+    "@inversifyjs/http-core": "workspace:*",
+    "@inversifyjs/http-express": "workspace:*",
+    "@inversifyjs/http-express-v4": "workspace:*",
+    "@inversifyjs/http-fastify": "workspace:*",
+    "@inversifyjs/http-hono": "workspace:*",
+    "@inversifyjs/http-uwebsockets": "workspace:*",
+    "@nestjs/common": "11.1.9",
+    "@nestjs/core": "11.1.9",
+    "@nestjs/platform-express": "11.1.9",
+    "@nestjs/platform-fastify": "11.1.9",
+    "express": "5.2.1",
+    "express4": "npm:express@4.22.1",
+    "fastify": "5.6.2",
+    "hono": "4.10.8",
+    "inversify": "7.10.6",
+    "rxjs": "7.8.2",
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.55.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/express4": "npm:@types/express@4.17.25",
+    "@types/k6": "^1.4.0",
+    "@types/node": "^24.10.3",
+    "eslint": "9.39.2",
+    "prettier": "3.7.4",
+    "rimraf": "6.1.2",
+    "rollup": "4.53.3",
+    "ts-loader": "9.5.4",
+    "tslib": "2.8.1",
+    "typescript": "5.9.3"
+  },
+  "homepage": "https://inversify.io",
+  "keywords": [
+    "dependency injection",
+    "dependency inversion",
+    "di",
+    "inversion of control container",
+    "ioc",
+    "javascript",
+    "node",
+    "typescript"
+  ],
+  "devEngines": {
+    "node": "^24.10.0",
+    "pnpm": "^10.13.1"
+  },
+  "license": "MIT",
+  "name": "@inversifyjs/http-benchmarks",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inversify/monorepo.git"
+  },
+  "scripts": {
+    "benchmarks:run:cjs:low": "BUILD_TARGET=cjs VUS=16 ./bin/run-cjs.cjs",
+    "benchmarks:run:cjs:medium": "BUILD_TARGET=cjs VUS=128 ./bin/run-cjs.cjs",
+    "benchmarks:run:cjs:high": "BUILD_TARGET=cjs VUS=1024 ./bin/run-cjs.cjs",
+    "build": "pnpm run build:cjs",
+    "build:cjs": "tsc --build tsconfig.cjs.json && pnpm exec foundation-ts-package-cjs ./lib/cjs",
+    "build:clean": "rimraf lib",
+    "format": "prettier --write ./src",
+    "lint": "eslint ./src",
+    "prebuild": "pnpm run build:clean"
+  }
+}

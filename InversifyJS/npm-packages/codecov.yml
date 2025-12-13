@@ -1,0 +1,104 @@
+coverage:
+  status:
+    project:
+      default: false
+      '@inversifyjs/ajv-validation':
+        flags:
+          - '@inversifyjs/ajv-validation'
+      '@inversifyjs/binding-decorators':
+        flags:
+          - '@inversifyjs/binding-decorators'
+      '@inversifyjs/class-validation':
+        flags:
+          - '@inversifyjs/class-validation'
+      '@inversifyjs/common':
+        flags:
+          - '@inversifyjs/common'
+      '@inversifyjs/container':
+        flags:
+          - '@inversifyjs/container'
+      '@inversifyjs/core':
+        flags:
+          - '@inversifyjs/core'
+      '@inversifyjs/http-better-auth':
+        flags:
+          - '@inversifyjs/http-better-auth'
+      '@inversifyjs/http-core':
+        flags:
+          - '@inversifyjs/http-core'
+      '@inversifyjs/http-open-api':
+        flags:
+          - '@inversifyjs/http-open-api'
+      '@inversifyjs/http-validation':
+        flags:
+          - '@inversifyjs/http-validation'
+      '@inversifyjs/logger':
+        flags:
+          - '@inversifyjs/logger'
+      '@inversifyjs/plugin-dispose':
+        flags:
+          - '@inversifyjs/plugin-dispose'
+      '@inversifyjs/prototype-utils':
+        flags:
+          - '@inversifyjs/prototype-utils'
+      '@inversifyjs/reflect-metadata-utils':
+        flags:
+          - '@inversifyjs/reflect-metadata-utils'
+      '@inversifyjs/http-sse':
+        flags:
+          - '@inversifyjs/http-sse'
+      '@inversifyjs/standard-schema-validation':
+        flags:
+          - '@inversifyjs/standard-schema-validation'
+flags:
+  '@inversifyjs/ajv-validation':
+    paths:
+      - packages/framework/validation/libraries/ajv
+  '@inversifyjs/binding-decorators':
+    paths:
+      - packages/container/libraries/binding-decorators/
+  '@inversifyjs/class-validation':
+    paths:
+      - packages/framework/validation/libraries/class-validator
+  '@inversifyjs/common':
+    paths:
+      - packages/container/libraries/common/
+  '@inversifyjs/container':
+    paths:
+      - packages/container/libraries/container/
+  '@inversifyjs/core':
+    paths:
+      - packages/container/libraries/core/
+  '@inversifyjs/framework-core':
+    paths:
+      - packages/framework/core
+  '@inversifyjs/http-better-auth':
+    paths:
+      - packages/framework/http/libraries/better-auth
+  '@inversifyjs/http-core':
+    paths:
+      - packages/framework/http/libraries/core
+  '@inversifyjs/http-open-api':
+    paths:
+      - packages/framework/http/libraries/open-api
+  '@inversifyjs/http-sse':
+    paths:
+      - packages/framework/http/libraries/sse
+  '@inversifyjs/http-validation':
+    paths:
+      - packages/framework/http/libraries/validation
+  '@inversifyjs/logger':
+    paths:
+      - packages/logger
+  '@inversifyjs/plugin-dispose':
+    paths:
+      - packages/container/libraries/plugin-dispose
+  '@inversifyjs/prototype-utils':
+    paths:
+      - packages/foundation/libraries/prototype-utils
+  '@inversifyjs/reflect-metadata-utils':
+    paths:
+      - packages/foundation/libraries/reflect-metadata-utils
+  '@inversifyjs/standard-schema-validation':
+    paths:
+      - packages/framework/validation/libraries/standard-schema

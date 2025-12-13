@@ -1,0 +1,55 @@
+{
+  "author": "Roberto Pintos López",
+  "bugs": {
+    "url": "https://github.com/inversify/monorepo/issues"
+  },
+  "description": "InversifyJs common validation package",
+  "devDependencies": {
+    "eslint": "9.39.2",
+    "prettier": "3.7.4",
+    "rimraf": "6.1.2",
+    "rollup": "4.53.3",
+    "ts-loader": "9.5.4",
+    "tslib": "2.8.1",
+    "typescript": "5.9.3"
+  },
+  "devEngines": {
+    "node": "^24.10.0",
+    "pnpm": "^9.12.1"
+  },
+  "homepage": "https://inversify.io",
+  "keywords": [
+    "inversify",
+    "javascript",
+    "node",
+    "typescript",
+    "validation"
+  ],
+  "license": "MIT",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib/esm/index.js",
+      "require": "./lib/cjs/index.js"
+    }
+  },
+  "name": "@inversifyjs/validation-common",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inversify/monorepo.git"
+  },
+  "scripts": {
+    "build": "pnpm run build:cjs && pnpm run build:esm",
+    "build:cjs": "tsc --build tsconfig.cjs.json && pnpm exec foundation-ts-package-cjs ./lib/cjs",
+    "build:esm": "rollup -c ./rollup.config.mjs && pnpm exec foundation-ts-package-esm ./lib/esm",
+    "build:clean": "rimraf lib",
+    "format": "prettier --write ./src",
+    "lint": "eslint ./src",
+    "prebuild": "pnpm run build:clean"
+  },
+  "version": "2.0.1"
+}

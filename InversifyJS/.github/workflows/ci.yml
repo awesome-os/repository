@@ -1,0 +1,113 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  Testing:
+    name: Compile source code and run tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [20.x, 22.x]
+        os: [ubuntu-latest, windows-latest]
+        ts-project: [tsconfig.json]
+        exclude:
+        - node-version: 22.x
+          os: ubuntu-latest
+          ts-project: tsconfig.json
+    env:
+      TS_NODE_PROJECT: ${{ matrix.ts-project }}
+
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v5
+
+      - name: Install Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ matrix.node-version }}
+          package-manager-cache: false
+
+      - uses: pnpm/action-setup@v3
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 10.17.1
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+        shell: bash
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+      - name: Compile source code
+        run: pnpm run build
+      - name: Run tests
+        run: pnpm test
+
+  Upload_Coverage_Report:
+    name: Upload coverage report to codecov
+    environment: CI
+    env:
+      TS_NODE_PROJECT: tsconfig.json
+    needs: [Testing]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v5
+
+      - name: Install Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22.20.0
+
+      - uses: pnpm/action-setup@v3
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 10.17.1
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+        shell: bash
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+      - name: Compile source code
+        run: pnpm run build
+      - name: Run linter
+        run: pnpm run lint
+      - name: Run tests
+        run: pnpm test --coverage
+      - name: Codecov Upload
+        uses: codecov/codecov-action@v5
+        with:
+          directory: coverage/
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}

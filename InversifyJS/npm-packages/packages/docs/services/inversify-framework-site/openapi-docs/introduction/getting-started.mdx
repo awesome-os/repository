@@ -1,0 +1,55 @@
+---
+sidebar_position: 1
+title: Getting started
+---
+import gettingStartedCreateServerAndListenSource from '@inversifyjs/http-open-api-code-examples/generated/examples/v1/gettingStartedCreateServerAndListen.ts.txt';
+import CodeBlock from '@theme/CodeBlock';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Getting started
+
+## Install dependencies
+
+To get started with Inversify HTTP OpenAPI, first install the required packages.
+
+Begin by installing the `inversify` packages and `reflect-metadata`:
+
+<Tabs>
+  <TabItem value="npm" label="npm">
+
+```bash
+  npm install inversify reflect-metadata @inversifyjs/http-core @inversifyjs/http-open-api
+```
+
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+
+```bash
+  pnpm install inversify reflect-metadata @inversifyjs/http-core @inversifyjs/http-open-api
+```
+
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+
+```bash
+  yarn add inversify reflect-metadata @inversifyjs/http-core @inversifyjs/http-open-api
+```
+
+  </TabItem>
+</Tabs>
+
+:::warning
+
+Make sure to enable the [Experimental Decorators](https://www.typescriptlang.org/tsconfig/#experimentalDecorators) and [Emit Decorator Metadata](https://www.typescriptlang.org/tsconfig/#emitDecoratorMetadata) options in your `tsconfig.json`.
+
+:::
+
+## Configure server
+
+After installing the packages, create a server to listen for incoming requests. Below is a basic example of setting up an Express server with Inversify HTTP.
+You may set your server up with other supported frameworks like Hono or uWebSockets as well.
+
+<CodeBlock language="typescript">{gettingStartedCreateServerAndListenSource}</CodeBlock>
+
+The server is ready to receive requests, but there are no handlers yet. Add a Controller to handle incoming requests.

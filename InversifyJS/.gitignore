@@ -1,0 +1,51 @@
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+
+dist
+dts
+lib
+temp
+es
+
+type_definitions/inversify/*.js
+
+src/*.js
+src/**/*.js
+
+src/*.js.map
+src/**/*.js.map
+
+*.d.ts
+*.tsbuildinfo
+src/annotation/*.d.ts
+src/bindings/*.d.ts
+src/constants/*.d.ts
+src/container/*.d.ts
+src/planning/*.d.ts
+src/resolution/*.d.ts
+src/syntax/*.d.ts
+
+test/*.js
+test/**/*.js
+test/*.js.map
+test/**/*.js.map
+src/**/*.js.map
+src/*.js.map
+type_definitions/**/*.js
+.DS_store
+.idea
+
+.nyc_output

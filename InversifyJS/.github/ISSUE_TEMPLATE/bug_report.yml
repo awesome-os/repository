@@ -1,0 +1,23 @@
+name: "\U0001F41B Bug Report"
+description: "If something isn't working as expected \U0001F914"
+labels: ["needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please, submit the issue in the [monorepo](https://github.com/inversify/monorepo/issues/new?template=bug.yml)
+
+        Please do not create the issue here, it will be closed.
+
+        ---
+
+  - type: checkboxes
+    id: no-post
+    attributes:
+      label: |
+        Please do not submit this issue.
+      description: |
+        :bangbang: &nbsp; This issue will be closed. :bangbang:
+      options:
+        - label: I understand
+          required: true
