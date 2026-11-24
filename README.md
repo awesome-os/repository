@@ -27,3 +27,10 @@
 - universal-git\worktrees\components\web-interfaces\ide road to universal-ide
 - Better AppLaunchers and Publishing Concepts maybe linked Stores?
 - offer 1:1 Electron Replacement.
+
+## Quick Start (Windows / Linux / macOS)
+
+```sh
+# Clone & enter repository (all platforms)
+git clone https://github.com/awesome-os/repository.git && cd repository
+```
